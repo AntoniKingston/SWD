@@ -1,0 +1,120 @@
+\documentclass[12pt,a4paper]{article}
+
+% Pakiety podstawowe
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{geometry}
+\usepackage{titling}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+% Ustawienia marginesów
+\geometry{
+    a4paper,
+    left=25mm,
+    right=25mm,
+    top=25mm,
+    bottom=25mm,
+}
+
+% Ustawienia linków
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Zadanie 1 - Analiza Problemu Decyzyjnego},
+}
+
+% --- DANE DO TYTUŁU ---
+\title{\textbf{Zadanie 1: Analiza problemu decyzyjnego}\\
+\large Przedmiot: Systemy Wspomagania Decyzji (SWD)\\
+\vspace{0.5cm}
+\Large Temat: Optymalizacja lokalizacji, rozmiaru i typu schronów oraz miejsc bezpiecznych dla aglomeracji miejskiej (1-2 mln mieszkańców)}
+
+\author{
+    1. [Filip Filipkowski, Nr albumu] \\
+    2. [Antoni Kingston, 327284] \\
+    3. [Hubert Sobociński, Nr albumu]
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Wstęp - Od problemu do decyzji}
+Projekt zakłada opracowanie koncepcji Systemu Wspomagania Decyzji (SWD) wspierającego władze dużego miasta w strategicznym planowaniu infrastruktury ochronnej na wypadek wystąpienia zagrożeń (np. konflikt zbrojny, katastrofy przemysłowe). Poniżej zestawiono odpowiedzi na zasadnicze pytania kierunkowe:
+
+\begin{itemize}
+    \item \textbf{Kto podejmuje decyzję?} Decyzję podejmują władze samorządowe reprezentowane przez Prezydenta Miasta we współpracy z Wydziałem Zarządzania Kryzysowego i Bezpieczeństwa.
+    \item \textbf{Jaki jest zakres wyboru?} Wybór polega na określeniu optymalnej konfiguracji sieci schronów (rozmieszczenie punktów na mapie miasta, wybór ich pojemności oraz określenie typu obiektu: adaptacja infrastruktury podziemnej czy budowa nowych jednostek).
+    \item \textbf{Co oznacza dobra decyzja?} Dobra decyzja maksymalizuje procent populacji z dostępem do bezpiecznego schronienia w czasie pieszego dojścia do 15 minut, przy jednoczesnym zmieszczeniu się w budżecie inwestycyjnym.
+    \item \textbf{Jakie są ograniczenia?} Ograniczenia wynikają z budżetu, uwarunkowań geologicznych, zagospodarowania przestrzennego oraz uwarunkowań prawnych.
+\end{itemize}
+
+\section{Szczegółowa klasyfikacja problemu decyzyjnego}
+
+Zgodnie z metodyką systemów wspomagania decyzji, analizowany problem został zdekomponowany na następujące elementy składowe:
+
+\subsection{Decydent}
+Wydział Zarządzania Kryzysowego Urzędu Miasta, w szczególności Zespół ds. Planowania Przestrzennego i Infrastruktury Krytycznej (podejmowanie decyzji o charakterze strategicznym i wielomilionowych inwestycjach).
+
+\subsection{Cel decyzji}
+Optymalizacja rozmieszczenia infrastruktury ochronnej polegająca na:
+\begin{itemize}
+    \item \textbf{Maksymalizacji pokrycia populacji:} Zapewnieniu dostępu do schronu jak największej liczbie obywateli.
+    \item \textbf{Minimalizacji kosztów i czasu budowy:} Zrównoważeniu drogich nowych konstrukcji z tańszą adaptacją (np. stacje metra, parkingi podziemne).
+\end{itemize}
+
+\subsection{Warianty decyzyjne}
+Warianty stanowią unikalne kombinacje (scenariusze inwestycyjne) przypisujące lokalizacjom przestrzennym konkretne parametry:
+\begin{itemize}
+    \item \textbf{Lokalizacja:} Przydział konkretnych działek w dzielnicach lub istniejących obiektów inżynieryjnych.
+    \item \textbf{Rozmiar/Pojemność:} Zróżnicowanie na małe schrony (do 50 osób, szybkie dojście) oraz duże obiekty masowe (powyżej 1000 osób, trudniejsze dojście).
+    \item \textbf{Typ:} Budowa od zera (tzw. bunkry dedykowane) vs. adaptacja podwójnego przeznaczenia (parkingi, podziemia, metro).
+\end{itemize}
+
+\subsection{Kryteria oceny}
+Poszczególne warianty inwestycyjne oceniane będą według następujących kryteriów:
+\begin{enumerate}
+    \item \textbf{Czas dostępu (izochrony dojścia pieszo):} Główny priorytet, czas mierzony w oparciu o siatkę ulic (max. 10-15 minut).
+    \item \textbf{Nakłady finansowe:} Koszt projektowania, budowy/adaptacji oraz późniejszego utrzymania rocznego.
+    \item \textbf{Pojemność całkowita:} Stosunek ilości dostępnych miejsc do gęstości zaludnienia w danym sektorze miasta.
+    \item \textbf{Kategoria ochrony:} Stopień ochrony przed konkretnymi typami zagrożeń (np. promieniowanie, fala uderzeniowa).
+\end{enumerate}
+
+\subsection{Ograniczenia}
+\begin{itemize}
+    \item \textbf{Finansowe:} Maksymalny limit budżetu na dany rok (np. dotacje z budżetu państwa).
+    \item \textbf{Przestrzenne i geologiczne:} Zwarte centra miast uniemożliwiają budowę obiektów od zera, występowanie wód gruntowych blokuje użycie niektórych terenów.
+    \item \textbf{Prawne:} Wymagania prawa budowlanego oraz wytyczne Obrony Cywilnej dotyczące wentylacji czy wyjść ewakuacyjnych.
+\end{itemize}
+
+\subsection{Otoczenie decyzji}
+Problematyka jest głęboko osadzona w dynamice dużego miasta (1-2 mln ludności). Otoczenie charakteryzuje się:
+\begin{itemize}
+    \item \textbf{Dobowymi migracjami:} Populacja w centrum (biurowce) i na osiedlach sypialniach drastycznie różni się w zależności od pory dnia i nocy.
+    \item Złożonością miejskiej sieci komunikacyjnej (np. szerokie rzeki stanowiące barierę dla pieszych).
+    \item Potencjalnym oporem społecznym (tzw. syndrom NIMBY - \textit{Not In My Back Yard}).
+\end{itemize}
+
+\subsection{Niepewność}
+Z uwagi na naturę problemu, system musi radzić sobie z ryzykiem i brakiem pełnej informacji:
+\begin{itemize}
+    \item Niepewność pory wystąpienia ewentualnego zdarzenia kryzysowego (determinuje, gdzie znajduje się większość obywateli miasta).
+    \item Tempo migracji ludności w latach objętych scenariuszami inwestycyjnymi (zmiany demograficzne w dzielnicach).
+    \item Nieprzewidywalność rzeczywistego uszkodzenia szlaków komunikacyjnych powstrzymujących obywateli przed dotarciem do schronu.
+\end{itemize}
+
+\subsection{Klasyfikacja problemu}
+Opierając się na omawianych na zajęciach współczesnych metodach klasyfikacji SWD:
+\begin{itemize}
+    \item \textbf{Typ problemu:} Problem złożony o charakterze lokalizacyjnym (Location-Allocation Problem) oraz wielokryterialnym.
+    \item \textbf{Podejście systemu:} System będzie miał charakter \textbf{hybrydowy}. 
+    \item Połączy podejście \textbf{Data-driven / GIS} (wykorzystanie danych przestrzennych dotyczących demografii i infrastruktury) z podejściem \textbf{Model-driven} (algorytmy optymalizacyjne do wyznaczania tras i przypisania populacji, wsparte metodą AHP do priorytetyzacji dzielnic i kryteriów decyzji).
+\end{itemize}
+
+\end{document}
