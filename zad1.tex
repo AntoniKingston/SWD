@@ -35,9 +35,9 @@
 \Large Temat: Optymalizacja lokalizacji, rozmiaru i typu schronów oraz miejsc bezpiecznych dla aglomeracji miejskiej (1-2 mln mieszkańców)}
 
 \author{
-    1. [Filip Filipkowski, Nr albumu] \\
+    1. [Filip Filipkowski, 327344] \\
     2. [Antoni Kingston, 327284] \\
-    3. [Hubert Sobociński, Nr albumu]
+    3. [Hubert Sobociński, 327315]
 }
 \date{}
 
@@ -61,6 +61,16 @@ Zgodnie z metodyką systemów wspomagania decyzji, analizowany problem został z
 
 \subsection{Decydent}
 Wydział Zarządzania Kryzysowego Urzędu Miasta, w szczególności Zespół ds. Planowania Przestrzennego i Infrastruktury Krytycznej (podejmowanie decyzji o charakterze strategicznym i wielomilionowych inwestycjach).
+
+\subsection{Interesariusze}
+Oprócz decydenta na kształt i odbiór decyzji wpływają następujące grupy:
+\begin{itemize}
+    \item \textbf{Mieszkańcy:} Główni beneficjenci systemu, zainteresowani krótkim czasem dojścia do schronu oraz brakiem uciążliwości budowy w najbliższym otoczeniu.
+    \item \textbf{Państwowa Straż Pożarna i Obrona Cywilna:} Odpowiadają za ewidencję budowli ochronnych i organizację ewakuacji, dostarczają wytycznych technicznych.
+    \item \textbf{Wojewoda i MSWiA:} Nadzorują realizację programu ochrony ludności i współfinansują inwestycje z budżetu państwa.
+    \item \textbf{Zarządcy obiektów:} Operator metra, właściciele parkingów podziemnych i garaży, których obiekty mogą zostać zaadaptowane na cele ochronne.
+    \item \textbf{Rady dzielnic:} Reprezentują lokalne społeczności, mogą wspierać lub blokować konkretne lokalizacje (syndrom NIMBY).
+\end{itemize}
 
 \subsection{Cel decyzji}
 Optymalizacja rozmieszczenia infrastruktury ochronnej polegająca na:
@@ -101,6 +111,17 @@ Problematyka jest głęboko osadzona w dynamice dużego miasta (1-2 mln ludnośc
     \item Potencjalnym oporem społecznym (tzw. syndrom NIMBY - \textit{Not In My Back Yard}).
 \end{itemize}
 
+\subsection{Źródła danych}
+System będzie zasilany danymi z następujących źródeł:
+\begin{itemize}
+    \item \textbf{GUS (NSP 2021):} Liczba ludności w siatce kilometrowej i podział na rejony statystyczne.
+    \item \textbf{BDOT10k i OpenStreetMap:} Sieć ulic i ciągów pieszych, obrys budynków, przeszkody terenowe (rzeki, tory).
+    \item \textbf{Dokumenty planistyczne (MPZP, Studium):} Przeznaczenie terenów i dostępne działki.
+    \item \textbf{Mapy hydrogeologiczne (PIG-PIB):} Poziom wód gruntowych i warunki gruntowe.
+    \item \textbf{Dane operatorów komórkowych i transportu publicznego:} Rozkład populacji w ciągu doby (scenariusz dzień/noc).
+    \item \textbf{Rejestr budowli ochronnych PSP:} Istniejące schrony i ukrycia wraz z ich stanem technicznym.
+\end{itemize}
+
 \subsection{Niepewność}
 Z uwagi na naturę problemu, system musi radzić sobie z ryzykiem i brakiem pełnej informacji:
 \begin{itemize}
@@ -115,6 +136,14 @@ Opierając się na omawianych na zajęciach współczesnych metodach klasyfikacj
     \item \textbf{Typ problemu:} Problem złożony o charakterze lokalizacyjnym (Location-Allocation Problem) oraz wielokryterialnym.
     \item \textbf{Podejście systemu:} System będzie miał charakter \textbf{hybrydowy}. 
     \item Połączy podejście \textbf{Data-driven / GIS} (wykorzystanie danych przestrzennych dotyczących demografii i infrastruktury) z podejściem \textbf{Model-driven} (algorytmy optymalizacyjne do wyznaczania tras i przypisania populacji, wsparte metodą AHP do priorytetyzacji dzielnic i kryteriów decyzji).
+\end{itemize}
+
+\section{Ogólna architektura systemu}
+Proponowany system wpisuje się w klasyczną strukturę SWD, składającą się z trzech współpracujących podsystemów:
+\begin{itemize}
+    \item \textbf{Podsystem danych:} Baza danych przestrzennych (GIS) integrująca dane demograficzne, sieć komunikacyjną, ograniczenia terenowe oraz rejestr istniejących obiektów.
+    \item \textbf{Podsystem modeli:} Algorytmy optymalizacji lokalizacji wyznaczające rozmieszczenie schronów i przypisanie do nich populacji, uzupełnione metodą AHP do ustalania wag kryteriów.
+    \item \textbf{Interfejs użytkownika:} Mapa prezentująca warianty rozmieszczenia, porównanie scenariuszy (np. dzień/noc) oraz analiza typu \textit{what-if} (np. zmiana budżetu, wyłączenie mostu).
 \end{itemize}
 
 \end{document}
